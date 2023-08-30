@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE sp_MostrarClaseArticulo
+CREATE OR ALTER PROCEDURE sp_MostrarArticulo
 					@output INT OUT --Codigo se salida
 AS
 BEGIN
@@ -14,9 +14,12 @@ TABLE(
 		SELECT  Nombre,
 				Precio
 
-		FROM Articulo
+		FROM Articulo 
 	
-		SELECT * FROM @MostrarTable
+		SELECT Nombre,
+				Precio 
+		FROM @MostrarTable 
+		ORDER BY Nombre
 	END TRY
 	BEGIN CATCH
 
